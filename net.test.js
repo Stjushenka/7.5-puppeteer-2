@@ -1,4 +1,4 @@
-const { expect } = require("chai");
+
 const { clickElement, getText } = require("./lib/commands.js");
 const daysWeek = require("./lib/util.js");
 
@@ -25,7 +25,7 @@ describe("Booking tickets", () => {
 
     test("Should book one seat", async () => {
         await clickElement(page, "[data-seance-start='1140']");
-        await clickElement(page, ".buying-scheme__wrapper > div:nth-child(1) > span:nth-child(1)");
+        await clickElement(page, 5, 7);
         await clickElement(page, ".acceptin-button");
 
         const actual = await getText(page, "h2.ticket__check-title");
@@ -34,7 +34,7 @@ describe("Booking tickets", () => {
 
     test("Should book one VIP seat", async () => {
         await clickElement(page, "[data-seance-start='840']");
-        await clickElement(page, ".buying-scheme__wrapper > div:nth-child(1) > span:nth-child(2)");
+        await clickElement(page, 1, 2);
         await clickElement(page, ".acceptin-button");
 
         const actual = await getText(page, "h2.ticket__check-title");
